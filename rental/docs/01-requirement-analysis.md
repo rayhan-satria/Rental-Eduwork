@@ -18,7 +18,7 @@
 
 ## 3. Functional Requirements
 - **FR-01 (Autentikasi Pengguna)** : Sistem menyediakan fitur registrasi, login, dan logout untuk Admin dan Customer (menggunakan Laravel Breeze).
-- **FR-02 (Manajemen Armada Motor - Admin)** : Admin dapat menambah, melihat, mengubah, dan menghapus (CRUD) data motor (merk, tipe, plat nomor, tahun, harga sewa, foto, dan status ketersediaan).
+- **FR-02 (Manajemen Armada Motor - Admin)** : Admin dapat menambah, melihat, mengubah, dan menghapus (CRUD) data motor (merk, tipe, tahun, harga sewa, foto) dan data unit motor (plat nomor, kondisi, dan status unit).
 - **FR-03 (Verifikasi Booking & Pembayaran - Admin)** : Admin dapat memverifikasi dokumen identitas dan bukti pembayaran customer untuk menyetujui (*approve*) atau menolak (*reject*) pesanan.
 - **FR-04 (Manajemen Status Sewa - Admin)** : Admin dapat memperbarui status siklus transaksi (Menunggu Pembayaran -> Menunggu Verifikasi -> Disetujui/Siap Diambil -> Sedang Disewa -> Selesai / Dibatalkan).
 - **FR-05 (Perhitungan Denda & Pengembalian - Admin)** : Admin dapat mencatat waktu aktual pengembalian motor dan sistem otomatis menghitung denda jika terjadi keterlambatan.
@@ -41,7 +41,7 @@
 - **Apakah rental dihitung per 24 jam atau per hari kalender?** : 
   Dihitung **per 24 jam** sejak waktu pengambilan motor yang disepakati pada formulir booking (contoh: ambil Senin pukul 10.00 WIB, maka wajib kembali Selasa pukul 10.00 WIB).
 - **Apakah customer harus membayar DP?** : 
-  Ya, customer wajib membayar **DP minimal 30%–50%** dari total biaya sewa maksimal 2 jam setelah booking dibuat agar jadwal terkunci. Sisa pembayaran dilunasi saat serah terima unit motor (atau customer boleh langsung membayar lunas 100% di awal).
+  Ya, customer wajib membayar **DP minimal 30%** dari total biaya sewa maksimal 2 jam setelah booking dibuat agar jadwal terkunci. Sisa pembayaran dilunasi saat serah terima unit motor (atau customer boleh langsung membayar lunas 100% di awal).
 - **Siapa yg menyetujui booking?** : 
   **Admin** menyetujui booking setelah memeriksa keaslian dokumen identitas (KTP & SIM C) dan memvalidasi dana DP yang masuk ke rekening rental.
 - **Kapan motor dianggap tidak tersedia?** : 
@@ -49,8 +49,13 @@
   2. Ketika unit berstatus *"Sedang Disewa"* atau *"Dalam Perawatan/Servis"* yang diatur manual oleh Admin.
   *(Catatan: Jika booking berstatus "Menunggu Pembayaran" melewati batas waktu 2 jam tanpa upload bukti bayar, sistem otomatis membatalkan booking dan mengembalikan status motor menjadi tersedia).*
 - **Bagaimana aturan keterlambatan?** : 
-  Diberikan toleransi keterlambatan maksimal **1 jam**. Jika melewati batas toleransi, dikenakan denda sebesar **15% dari harga sewa harian per jam** keterlambatan. Jika keterlambatan melebihi 5 jam, maka otomatis dihitung sebagai perpanjangan sewa **1 hari penuh**.
+  Diberikan toleransi keterlambatan maksimal **1 jam**. Jika melewati batas toleransi, dikenakan denda sebesar **15% dari harga sewa harian per jam** keterlambatan. Jika keterlambatan melebihi 5 jam, maka otomatis dihitung sebagai perpanjangan sewa **1 hari penuh** dan menggantikan denda per jam.
 - **Bagaimana jika motor rusak?** : 
   1. **Kerusakan ringan akibat pemakaian wajar** (misal: ban bocor standar, bohlam putus) ditanggung oleh pihak rental atau diganti sesuai kesepakatan awal.
   2. **Kerusakan akibat kelalaian customer** (kecelakaan, jatuh, komponen patah/hilang) sepenuhnya menjadi tanggung jawab customer untuk mengganti biaya perbaikan di bengkel resmi.
   3. **Kehilangan unit atau STNK** mewajibkan customer mengganti sesuai nilai pasar unit atau biaya pengurusan surat kehilangan kepolisian dan penerbitan STNK baru.
+  4. **Pemeriksaan kondisi motor** 
+  - Admin mencatat dan mendokumentasikan kondisi motor sebelum diserahkan 
+  - Admin mencatat dan mendokumentasikan kondisi motor setelah dikembalikan
+  - Kerusakan dicatat sebagai laporan tambahan
+  - Biaya ganti rugi ditentukan berdasarkan hasil pemeriksaan dan kesepakatan 
