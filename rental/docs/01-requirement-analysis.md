@@ -1,7 +1,7 @@
 # Requirement Analysis: Business Discovery
 
 ## 1. Project Overview
-- **Nama Aplikasi** : Rental (Bisa disesuaikan dengan nama brand/usaha Anda)
+- **Nama Aplikasi** : Rental 
 - **Tujuan Aplikasi** : Membangun platform pemesanan rental motor berbasis web untuk mempermudah customer melihat ketersediaan unit secara real-time, melakukan booking secara mandiri, serta membantu admin mengelola armada dan transaksi penyewaan secara terpusat.
 - **Masalah yg Ingin Diselesaikan** : 
   1. Pencatatan jadwal sewa manual yang rawan bentrok (*double booking*).
