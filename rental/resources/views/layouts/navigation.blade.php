@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.motorcycles.index')" :active="request()->routeIs('admin.motorcycles.*')">
+    Armada Motor
+    <x-nav-link :href="route('admin.motorcycle-units.index')" :active="request()->routeIs('admin.motorcycle-units.*')">
+    Unit Motor
+</x-nav-link>
+</x-nav-link>   
                 </div>
             </div>
 
