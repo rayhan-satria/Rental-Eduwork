@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Admin\MotorcycleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +17,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// ===== Admin: kelola armada motor =====
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('motorcycles', MotorcycleController::class)->except('show');
+});
 require __DIR__.'/auth.php';
