@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class MotorcycleUnit extends Model
 {
+    // Daftar status unit dan labelnya dalam bahasa Indonesia
+    public const STATUSES = [
+        'available' => 'Tersedia',
+        'rented' => 'Disewa',
+        'maintenance' => 'Perawatan',
+    ];
+
     protected $fillable = [
         'motorcycle_id',
         'license_plate',
