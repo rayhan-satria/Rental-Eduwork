@@ -115,7 +115,7 @@
 | `proof_image` | `VARCHAR(255)` | Nullable, path foto bukti transfer |
 | `status` | `ENUM('pending', 'verified', 'rejected')` | Default: `'pending'` |
 | `verified_by` | `BIGINT UNSIGNED` | Nullable, referensi ke `users` (Admin yang memverifikasi) |
-| `paid_at` | `DATETIME` | Waktu customer melakukan pembayaran |
+| `paid_at` | `DATETIME` | Nullable, Waktu customer melakukan pembayaran |
 | `submitted_at` | `DATETIME` | Waktu bukti pembayaran diunggah |
 | `verified_at` | `DATETIME` | Nullable, waktu verifikasi admin |
 | `created_at` | `TIMESTAMP` | Waktu pembuatan data |
