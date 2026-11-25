@@ -46,7 +46,7 @@
 | `cc` | `INT` | Kapasitas mesin (misal: 125, 150, 160) |
 | `daily_price` | `DECIMAL(12, 2)` | Harga sewa per 24 jam |
 | `description` | `TEXT` | Nullable, spesifikasi atau fasilitas tambahan (helm, jas hujan) |
-| `image` | `VARCHAR(255)` | Path foto utama katalog motor |
+| `image` | `VARCHAR(255)` | Nullable, path foto utama katalog motor |
 | `created_at` | `TIMESTAMP` | Waktu pembuatan data |
 | `updated_at` | `TIMESTAMP` | Waktu pembaruan data |
 
