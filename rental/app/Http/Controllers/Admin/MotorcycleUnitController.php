@@ -77,7 +77,7 @@ class MotorcycleUnitController extends Controller
             ],
             'year' => 'required|integer|min:1990|max:' . (date('Y') + 1),
             'color' => 'required|string|max:50',
-            'unit_condition' => ['required', Rule::in(MotorcycleUnit::CONDITIONS)],
+            'unit_condition' => ['required', Rule::in(array_keys(MotorcycleUnit::CONDITIONS))],
             'status' => ['required', Rule::in(array_keys(MotorcycleUnit::STATUSES))],
         ]);
 
