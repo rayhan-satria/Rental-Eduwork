@@ -52,7 +52,7 @@
                                 <td class="px-4 py-3">{{ $unit->motorcycle->full_name }}</td>
                                 <td class="px-4 py-3">{{ $unit->year }}</td>
                                 <td class="px-4 py-3">{{ $unit->color }}</td>
-                                <td class="px-4 py-3">{{ $unit->unit_condition }}</td>
+                                <td class="px-4 py-3">{{ \App\Models\MotorcycleUnit::CONDITIONS[$unit->unit_condition] ?? $unit->unit_condition }}</td>
                                 <td class="px-4 py-3">
                                     <span class="px-2 py-1 rounded-full text-xs font-medium {{ $badgeClass }}">
                                         {{ \App\Models\MotorcycleUnit::STATUSES[$unit->status] ?? $unit->status }}

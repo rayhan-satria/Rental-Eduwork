@@ -41,9 +41,9 @@
         <label for="unit_condition" class="block text-sm font-medium text-gray-700">Kondisi</label>
                 <select id="unit_condition" name="unit_condition"
                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
-            @foreach (\App\Models\MotorcycleUnit::CONDITIONS as $condition)
-                <option value="{{ $condition }}" @selected(old('unit_condition', $unit->unit_condition ?? '') === $condition)>
-                    {{ $condition }}
+                        @foreach (\App\Models\MotorcycleUnit::CONDITIONS as $value => $label)
+                <option value="{{ $value }}" @selected(old('unit_condition', $unit->unit_condition ?? '') === $value)>
+                    {{ $label }}
                 </option>
             @endforeach
         </select>
