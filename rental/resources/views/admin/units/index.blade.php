@@ -16,7 +16,16 @@
             @endif
 
             <div class="bg-white shadow-sm sm:rounded-lg overflow-x-auto">
-                <table class="min-w-full text-sm">
+            <form method="GET" action="{{ route('admin.motorcycle-units.index') }}" class="mb-4">
+    <label for="status" class="mr-2 text-sm text-gray-600">Filter status:</label>
+    <select name="status" id="status" onchange="this.form.submit()" class="rounded border-gray-300 text-sm">
+        <option value="">Semua status</option>
+        @foreach (\App\Models\MotorcycleUnit::STATUSES as $value => $label)
+            <option value="{{ $value }}" @selected($status === $value)>{{ $label }}</option>
+        @endforeach
+    </select>
+</form>    
+            <table class="min-w-full text-sm">
                     <thead class="bg-gray-50 text-left text-gray-600 uppercase text-xs">
                         <tr>
                             <th class="px-4 py-3">Plat Nomor</th>

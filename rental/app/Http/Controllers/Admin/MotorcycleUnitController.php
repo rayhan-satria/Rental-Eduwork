@@ -11,10 +11,17 @@ use Illuminate\Validation\Rule;
 class MotorcycleUnitController extends Controller
 {
     // Tabel unit motor
-    public function index()
+       public function index(Request $request)
     {
-        $units = MotorcycleUnit::with('motorcycle')->orderBy('license_plate')->paginate(10);
-        return view('admin.units.index', compact('units'));
+        $status = $request->query('status');
+
+        $units = MotorcycleUnit::with('motorcycle')
+            ->when($status, fn ($query) => $query->where('status', $status))
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('admin.units.index', compact('units', 'status'));
     }
 
     public function create()
@@ -70,7 +77,7 @@ class MotorcycleUnitController extends Controller
             ],
             'year' => 'required|integer|min:1990|max:' . (date('Y') + 1),
             'color' => 'required|string|max:50',
-            'unit_condition' => 'required|string|max:50',
+            'unit_condition' => ['required', Rule::in(MotorcycleUnit::CONDITIONS)],
             'status' => ['required', Rule::in(array_keys(MotorcycleUnit::STATUSES))],
         ]);
 

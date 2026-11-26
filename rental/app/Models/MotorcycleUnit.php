@@ -12,7 +12,12 @@ class MotorcycleUnit extends Model
         'rented' => 'Disewa',
         'maintenance' => 'Perawatan',
     ];
-
+     
+        public const CONDITIONS = [
+        'Baik',
+        'Perlu Servis',
+        'Rusak',
+    ];
     protected $fillable = [
         'motorcycle_id',
         'license_plate',

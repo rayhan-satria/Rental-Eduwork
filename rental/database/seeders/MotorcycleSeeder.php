@@ -29,7 +29,7 @@ class MotorcycleSeeder extends Seeder
                 'data' => ['brand' => 'Yamaha', 'model' => 'NMAX', 'category' => 'matic', 'cc' => 155,
                            'daily_price' => 150000, 'description' => 'Matic maxi, nyaman untuk perjalanan jauh. Termasuk 2 helm dan jas hujan.'],
                 'units' => [
-                    ['license_plate' => 'DK 4567 EF', 'year' => 2024, 'color' => 'Abu-abu', 'unit_condition' => 'Sangat baik'],
+                    ['license_plate' => 'DK 4567 EF', 'year' => 2024, 'color' => 'Abu-abu', 'unit_condition' => 'baik'],
                     ['license_plate' => 'DK 5678 EF', 'year' => 2022, 'color' => 'Biru', 'unit_condition' => 'Baik', 'status' => 'maintenance'],
                 ],
             ],
@@ -37,7 +37,7 @@ class MotorcycleSeeder extends Seeder
                 'data' => ['brand' => 'Honda', 'model' => 'Supra X 125', 'category' => 'manual', 'cc' => 125,
                            'daily_price' => 70000, 'description' => 'Motor bebek manual yang tangguh dan hemat.'],
                 'units' => [
-                    ['license_plate' => 'DK 6789 GH', 'year' => 2021, 'color' => 'Hitam', 'unit_condition' => 'Cukup baik'],
+                    ['license_plate' => 'DK 6789 GH', 'year' => 2021, 'color' => 'Hitam', 'unit_condition' => 'Perlu Service'],
                 ],
             ],
             [
