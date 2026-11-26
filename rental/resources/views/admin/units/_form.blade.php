@@ -39,9 +39,15 @@
 <div class="grid grid-cols-2 gap-4">
     <div>
         <label for="unit_condition" class="block text-sm font-medium text-gray-700">Kondisi</label>
-        <input id="unit_condition" name="unit_condition" type="text" placeholder="Baik"
-               value="{{ old('unit_condition', $unit->unit_condition ?? '') }}"
-               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                <select id="unit_condition" name="unit_condition"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+            @foreach (\App\Models\MotorcycleUnit::CONDITIONS as $condition)
+                <option value="{{ $condition }}" @selected(old('unit_condition', $unit->unit_condition ?? '') === $condition)>
+                    {{ $condition }}
+                </option>
+            @endforeach
+        </select>
+        
         @error('unit_condition') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
     </div>
     <div>
