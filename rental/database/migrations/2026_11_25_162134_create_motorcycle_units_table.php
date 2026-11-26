@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('license_plate', 20)->unique();          // plat nomor
             $table->year('year');                                   // tahun produksi
             $table->string('color', 50);
-            $table->string('unit_condition', 50);
+            $table->enum('unit_condition', ['good', 'needs_repair', 'damaged'])->default('good');
             $table->enum('status', ['available', 'rented', 'maintenance'])->default('available');
             $table->timestamps();
         });
