@@ -14,9 +14,9 @@ class MotorcycleUnit extends Model
     ];
      
         public const CONDITIONS = [
-        'Baik',
-        'Perlu Servis',
-        'Rusak',
+        'good' => 'Baik',
+        'needs_repair' => 'Perlu Servis',
+        'damaged' => 'Rusak',
     ];
     protected $fillable = [
         'motorcycle_id',
