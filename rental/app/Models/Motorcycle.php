@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Motorcycle extends Model
 {
@@ -17,7 +18,7 @@ class Motorcycle extends Model
     ];
 
     // 1 jenis motor punya banyak unit fisik
-    public function units()
+    public function units(): HasMany
     {
         return $this->hasMany(MotorcycleUnit::class);
     }
