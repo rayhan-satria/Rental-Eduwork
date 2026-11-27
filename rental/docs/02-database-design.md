@@ -63,7 +63,7 @@
 | `license_plate` | `VARCHAR(20)` | Unique, nomor polisi / plat nomor |
 | `year` | `YEAR` | Tahun Produksi Unit|
 | `color` | `VARCHAR(50)` | Warna fisik unit |
-| `unit_condition` | `VARCHAR(50)` | Kondisi fisik unit |
+| `unit_condition` | `ENUM('good', 'needs_repair', 'damaged')` | Kondisi fisik unit |
 | `status` | `ENUM('available', 'rented', 'maintenance')` | Default: `'available'` |
 | `created_at` | `TIMESTAMP` | Waktu pembuatan data |
 | `updated_at` | `TIMESTAMP` | Waktu pembaruan data |
