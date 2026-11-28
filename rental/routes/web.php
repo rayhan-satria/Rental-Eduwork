@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // ===== Admin: kelola armada motor =====
-Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['admin', 'auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('motorcycles', MotorcycleController::class)->except('show');
         Route::resource('motorcycle-units', MotorcycleUnitController::class)->except('show');
 });
